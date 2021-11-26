@@ -10,7 +10,7 @@ import {DSTS} from '../models/DSTS';
 @Injectable()
 export class DaCom {
 
-  private baseUrl = null;
+  private baseUrl: string = null;
 
   constructor(private readonly http: HttpClient) {
     this.baseUrl = localStorage.getItem('KM-EP-URL');
@@ -22,11 +22,24 @@ export class DaCom {
   }
 
   public isBaseUrlNull(): boolean {
-    return (this.baseUrl == null);
+    if (this.baseUrl === null) {
+      return true;
+    }
+    if (!this.baseUrl) {
+      return true;
+    }
+    if (!this.baseUrl.startsWith('http')) {
+      return true;
+    }
+
+    return false;
   }
 
 
-  public setBaseUrl(value: any): void {
+  public setBaseUrl(value: string): void {
+    if (value.endsWith('/')) {
+      value = value.substring(0, value.length - 1);
+    }
     this.baseUrl = value;
     localStorage.setItem('KM-EP-URL', value);
   }
