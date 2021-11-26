@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LearnerSessionComponent } from './learner-session/learner-session.component';
+import {DaCom} from './com/da-com';
+import {HttpClientModule} from '@angular/common/http';
+import { ActivityElementComponent } from './activity-element/activity-element.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LearnerSessionComponent,
+    ActivityElementComponent,
+    ErrorComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DaCom
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

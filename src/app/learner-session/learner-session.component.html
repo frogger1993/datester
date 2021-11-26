@@ -1,0 +1,32 @@
+<h1>DA Application UUID: {{daUUID}}</h1>
+
+<div>
+  <h2>Use DST: {{dst?.title}}</h2>
+  <p>{{dst?.description}}</p>
+</div>
+
+<div *ngFor="let play of dst?.plays" class="learning_section">
+  <h2>Play {{play.title}}</h2>
+  <p>{{play.description}}</p>
+
+  <div *ngFor="let act of play.acts" class="learning_section">
+    <h2>Act: {{act.title}}</h2>
+    <p>{{act.description}}</p>
+
+    <div *ngFor="let structure of act.structures" class="learning_section">
+      <h2>Structure: {{structure.title}}</h2>
+      <p>{{structure.description}}</p>
+
+      <div *ngFor="let activity of structure.activities" class="learning_section">
+        <app-activity-element (solvedClicked)="solve(activity)" [activity]="activity"></app-activity-element>
+      </div>
+
+    </div>
+
+    <div *ngFor="let activity of act.activities" class="learning_section">
+      <app-activity-element (solvedClicked)="solve(activity)" [activity]="activity"></app-activity-element>
+    </div>
+  </div>
+
+</div>
+
