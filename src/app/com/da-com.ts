@@ -42,7 +42,7 @@ export class DaCom {
     return new Promise(resolve => {
       this.http.get(url, {headers: DaCom.headers()}).subscribe(
         d => {
-          resolve(<DST> d.response);
+          resolve(<DST> ((<any> d).response));
         },
         e => {
           resolve(null);
