@@ -8,13 +8,15 @@ import {DaCom} from './com/da-com';
 import {HttpClientModule} from '@angular/common/http';
 import { ActivityElementComponent } from './activity-element/activity-element.component';
 import { ErrorComponent } from './error/error.component';
+import { DaDefaultComponent } from './da-default/da-default.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LearnerSessionComponent,
     ActivityElementComponent,
-    ErrorComponent
+    ErrorComponent,
+    DaDefaultComponent
   ],
   imports: [
     HttpClientModule,
